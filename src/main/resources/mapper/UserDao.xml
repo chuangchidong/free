@@ -3,29 +3,75 @@
 
 <mapper namespace="com.free.dao.UserDao">
 
-	<insert id="save" parameterType="com.free.entity.UserEntity" useGeneratedKeys="true" keyProperty="userId">
-		insert into tb_user
-		(
-			`username`,
-			`mobile`,
-			`password`,
-			`create_time`
-		)
-		values
-			(
-				#{username},
-				#{mobile},
-				#{password},
-				#{createTime}
-			)
-	</insert>
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.free.entity.UserEntity" id="userMap">
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="mobile" column="mobile"/>
+        <result property="password" column="password"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
 
 	<select id="queryObject" resultType="com.free.entity.UserEntity">
 		select * from tb_user where user_id = #{value}
 	</select>
 
-	<select id="queryByMobile" resultType="com.free.entity.UserEntity">
-		select * from tb_user where mobile = #{value}
+	<select id="queryList" resultType="com.free.entity.UserEntity">
+		select * from tb_user
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by user_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
 	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from tb_user 
+	</select>
+	 
+	<insert id="save" parameterType="com.free.entity.UserEntity" useGeneratedKeys="true" keyProperty="userId">
+		insert into tb_user
+		(
+			`username`, 
+			`mobile`, 
+			`password`, 
+			`create_time`
+		)
+		values
+		(
+			#{username}, 
+			#{mobile}, 
+			#{password}, 
+			#{createTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.free.entity.UserEntity">
+		update tb_user 
+		<set>
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}</if>
+		</set>
+		where user_id = #{userId}
+	</update>
+	
+	<delete id="delete">
+		delete from tb_user where user_id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from tb_user where user_id in 
+		<foreach item="userId" collection="array" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+	</delete>
 
 </mapper>

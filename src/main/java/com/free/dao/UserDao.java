@@ -5,11 +5,10 @@ import com.free.entity.UserEntity;
 /**
  * 用户
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-23 15:22:06
+ * @author zhangzhidong
+ * @email 1206214477@qq.com
+ * @date 2017-06-27 02:07:40
  */
 public interface UserDao extends BaseDao<UserEntity> {
-
-    UserEntity queryByMobile(String mobile);
+	
 }
