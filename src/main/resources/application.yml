@@ -19,6 +19,9 @@ spring:
         date-format: yyyy-MM-dd HH:mm:ss
     thymeleaf:
         cache: false
+    devtools:
+      restart:
+      additional-paths: com\\free\\**
 
 # Mybatis配置
 mybatis:
