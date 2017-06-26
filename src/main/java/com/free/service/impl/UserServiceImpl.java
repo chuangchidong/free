@@ -1,17 +1,15 @@
 package com.free.service.impl;
 
-import com.free.dao.UserDao;
-import com.free.entity.UserEntity;
-import com.free.service.UserService;
-import com.free.utils.RRException;
-import com.free.utils.validator.Assert;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import com.free.dao.UserDao;
+import com.free.entity.UserEntity;
+import com.free.service.UserService;
+
 
 
 @Service("userService")
@@ -35,12 +33,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void save(String mobile, String password){
-		UserEntity user = new UserEntity();
-		user.setMobile(mobile);
-		user.setUsername(mobile);
-		user.setPassword(DigestUtils.sha256Hex(password));
-		user.setCreateTime(new Date());
+	public void save(UserEntity user){
 		userDao.save(user);
 	}
 	
@@ -58,22 +51,5 @@ public class UserServiceImpl implements UserService {
 	public void deleteBatch(Long[] userIds){
 		userDao.deleteBatch(userIds);
 	}
-
-	@Override
-	public UserEntity queryByMobile(String mobile) {
-		return userDao.queryByMobile(mobile);
-	}
-
-	@Override
-	public long login(String mobile, String password) {
-		UserEntity user = queryByMobile(mobile);
-		Assert.isNull(user, "手机号或密码错误");
-
-		//密码错误
-		if(!user.getPassword().equals(DigestUtils.sha256Hex(password))){
-			throw new RRException("手机号或密码错误");
-		}
-
-		return user.getUserId();
-	}
+	
 }

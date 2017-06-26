@@ -4,7 +4,7 @@
 <mapper namespace="com.free.dao.SysGeneratorDao">
 	<select id="queryList" resultType="map">
 		select table_name tableName, engine, table_comment tableComment, create_time createTime from information_schema.tables 
-			where table_schema = (select database()) and TABLE_NAME NOT  LIKE concat('%','QRTZ','%')
+			where table_schema = (select database()) AND TABLE_NAME NOT  LIKE concat('%','sys','%')
 		<if test="tableName != null and tableName.trim() != ''">
 			and table_name like concat('%', #{tableName}, '%') 
 		</if>

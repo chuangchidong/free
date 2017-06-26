@@ -4,35 +4,36 @@ import java.io.Serializable;
 import java.util.Date;
 
 
+
 /**
  * 用户
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-23 15:22:06
+ * @author zhangzhidong
+ * @email 1206214477@qq.com
+ * @date 2017-06-27 02:07:40
  */
 public class UserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	//用户ID
+	//
 	private Long userId;
 	//用户名
 	private String username;
 	//手机号
 	private String mobile;
 	//密码
-	transient private String password;
+	private String password;
 	//创建时间
 	private Date createTime;
 
 	/**
-	 * 设置：用户ID
+	 * 设置：
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	/**
-	 * 获取：用户ID
+	 * 获取：
 	 */
 	public Long getUserId() {
 		return userId;
