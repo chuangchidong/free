@@ -21,7 +21,7 @@ spring:
         cache: false
     devtools:
       restart:
-      additional-paths: src/main/java
+      additional-paths: ./*
 
 # Mybatis配置
 mybatis:
