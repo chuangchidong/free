@@ -42,14 +42,7 @@ public class UserController {
         Query query = new Query(params);
 
 		List<UserEntity> userList = userService.queryList(query);
-		if (userList.size()<1) {
-			UserEntity entity = new UserEntity();
-			entity.setCreateTime(new Date());
-			entity.setMobile("13311110000");
-			entity.setUsername("姓名");
-			entity.setUserId(1L);
-			userList.add(entity);
-		}
+
 		int total = userService.queryTotal(query);
 		
 		PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
