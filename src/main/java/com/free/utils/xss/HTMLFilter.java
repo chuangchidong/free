@@ -120,7 +120,7 @@ public final class HTMLFilter {
         img_atts.add("alt");
         vAllowed.put("img", img_atts);
 
-        final ArrayList<String> no_atts = new ArrayList<String>();
+        final ArrayList<String> no_atts = new ArrayList<>();
         vAllowed.put("b", no_atts);
         vAllowed.put("strong", no_atts);
         vAllowed.put("i", no_atts);
