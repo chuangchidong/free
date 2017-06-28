@@ -108,12 +108,12 @@ public final class HTMLFilter {
     public HTMLFilter() {
         vAllowed = new HashMap<>();
 
-        final ArrayList<String> a_atts = new ArrayList<String>();
+        final ArrayList<String> a_atts = new ArrayList<>();
         a_atts.add("href");
         a_atts.add("target");
         vAllowed.put("a", a_atts);
 
-        final ArrayList<String> img_atts = new ArrayList<String>();
+        final ArrayList<String> img_atts = new ArrayList<>();
         img_atts.add("src");
         img_atts.add("width");
         img_atts.add("height");
