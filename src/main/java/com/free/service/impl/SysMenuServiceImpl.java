@@ -72,7 +72,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		}
 
 		//用户权限列表
-		Set<String> permsSet = new HashSet<String>();
+		Set<String> permsSet = new HashSet<>();
 		for(String perms : permsList){
 			if(StringUtils.isBlank(perms)){
 				continue;
