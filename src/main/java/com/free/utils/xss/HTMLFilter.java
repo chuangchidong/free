@@ -355,8 +355,8 @@ public final class HTMLFilter {
 
                 final Matcher m2 = P_QUOTED_ATTRIBUTES.matcher(body);
                 final Matcher m3 = P_UNQUOTED_ATTRIBUTES.matcher(body);
-                final List<String> paramNames = new ArrayList<String>();
-                final List<String> paramValues = new ArrayList<String>();
+                final List<String> paramNames = new ArrayList<>();
+                final List<String> paramValues = new ArrayList<>();
                 while (m2.find()) {
                     paramNames.add(m2.group(1)); //([a-z0-9]+)
                     paramValues.add(m2.group(3)); //(.*?)
