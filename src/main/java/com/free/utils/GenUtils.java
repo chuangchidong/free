@@ -29,7 +29,7 @@ import java.util.zip.ZipOutputStream;
 public class GenUtils {
 
 	public static List<String> getTemplates(){
-		List<String> templates = new ArrayList<String>();
+		List<String> templates = new ArrayList<>();
 		templates.add("template/Entity.java.vm");
 		templates.add("template/Dao.java.vm");
 		templates.add("template/Dao.xml.vm");
