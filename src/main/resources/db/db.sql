@@ -59,6 +59,7 @@ VALUES
 	(15,4,'新增',NULL,'sys:menu:save,sys:menu:select',2,NULL,0),
 	(16,4,'修改',NULL,'sys:menu:update,sys:menu:select',2,NULL,0),
 	(17,4,'删除',NULL,'sys:menu:delete',2,NULL,0);
+	(20, 1, 'SQL监控', 'druid/sql.html', NULL, 1, 'fa fa-bug', 4);
 
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
