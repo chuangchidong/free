@@ -229,7 +229,7 @@ public final class HTMLFilter {
         debug("processRemoveBlanks: " + s);
 
         s = validateEntities(s);
-        debug("    validateEntites: " + s);
+        debug("    validateEntities: " + s);
 
         debug("************************************************\n\n");
         return s;
