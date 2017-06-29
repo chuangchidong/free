@@ -61,6 +61,7 @@ VALUES
 	(17,4,'删除',NULL,'sys:menu:delete',2,NULL,0);
 
 	(20, 1, 'SQL监控', 'druid/sql.html', NULL, 1, 'fa fa-bug', 4);
+	(30, 1, '系统日志', 'sys/log.html', 'sys:log:list', 1, 'fa fa-file-text-o', 6);
 
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
