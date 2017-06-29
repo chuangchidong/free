@@ -59,6 +59,7 @@ VALUES
 	(15,4,'新增',NULL,'sys:menu:save,sys:menu:select',2,NULL,0),
 	(16,4,'修改',NULL,'sys:menu:update,sys:menu:select',2,NULL,0),
 	(17,4,'删除',NULL,'sys:menu:delete',2,NULL,0);
+
 	(20, 1, 'SQL监控', 'druid/sql.html', NULL, 1, 'fa fa-bug', 4);
 
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
@@ -174,6 +175,26 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table sys_log
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `sys_log`;
+
+CREATE TABLE `sys_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL COMMENT '用户名',
+  `operation` varchar(50) DEFAULT NULL COMMENT '用户操作',
+  `method` varchar(200) DEFAULT NULL COMMENT '请求方法',
+  `params` varchar(5000) DEFAULT NULL COMMENT '请求参数',
+  `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
+  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统日志';
+
+/*!40000 ALTER TABLE `sys_user_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table tb_token
 # ------------------------------------------------------------
 
@@ -207,10 +228,3 @@ CREATE TABLE `tb_user` (
 
 
 
-
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
